@@ -166,28 +166,25 @@ if __name__ == '__main__':
         # converting the fps into integer
         fps = int(fps)
 
-        # converting the fps to string so that we can display it on frame
-        # by using putText function
-        fps = str(fps)
-
         #cv2.line(combined_img, (20, 25), (127, 25), [85, 45, 255], 30)
-        cv2.putText(combined_img, f'FPS: {int(fps)}', (11, 35), 0, 1, [225, 255, 255], thickness=2)#, lineType=cv2.LINE_AA)
+        cv2.putText(combined_img, f'FPS: {fps}', (11, 35), 0, 1, [225, 255, 255], thickness=2)#, lineType=cv2.LINE_AA)
         # putting the FPS count on the frame
         #cv2.putText(combined_img, fps, (7, 70), font, 3, (100, 255, 0), 3, cv2.LINE_AA)
-
-        cv2.imshow("Detected Objects", combined_img)
-
+        
         #for saving video
-        video_path="videos/"
+        video_path="videos/output.avi"
         if isinstance(vid_writer, cv2.VideoWriter):
+            print(vid_writer)
             vid_writer.release()
-            fourcc = 'mp4v'  # output video codec
+            #fourcc = 'mp4v'  # output video codec
 
             w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
             h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            vid_writer = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*fourcc), fps, (w, h))
+            #print(w,h)
+            vid_writer = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*"MJPG"), fps, (w, h))
             vid_writer.write(combined_img)
-            print("done saving")
+        
+        cv2.imshow("Detected Objects", combined_img)
 
         # Press key q to stop
         if cv2.waitKey(1) & 0xFF == ord('q'):
