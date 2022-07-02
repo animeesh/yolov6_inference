@@ -15,6 +15,14 @@ YOLOv6 is composed of the following methods:
 
 ## Quick Start
 
+### environment
+
+```shell
+conda create --name yolov6 python=3.9
+
+conda activate yolov6
+```
+
 ### Install
 
 ```shell
