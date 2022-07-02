@@ -178,7 +178,7 @@ if __name__ == '__main__':
         cv2.imshow("Detected Objects", combined_img)
 
         #for saving video
-        video_path="runs/inference/videos"
+        video_path="videos/"
         if isinstance(vid_writer, cv2.VideoWriter):
             vid_writer.release()
             fourcc = 'mp4v'  # output video codec
