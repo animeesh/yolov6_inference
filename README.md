@@ -28,7 +28,7 @@ conda activate yolov6
 ```shell
 git clone https://github.com/animeesh/yolov6_inferencing
 cd yolov6_inferencing
-mkdir videos
+
 pip install -r requirements.txt
 ```
 
